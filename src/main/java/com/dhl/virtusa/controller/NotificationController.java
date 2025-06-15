@@ -1,4 +1,3 @@
-// src/main/java/com/dhl/virtusa/controller/NotificationController.java
 package com.dhl.virtusa.controller;
 
 import com.dhl.virtusa.model.NotificationMessage;
