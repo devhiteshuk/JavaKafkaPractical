@@ -20,6 +20,7 @@ public class VirtusaApplication {
 
 		instance.findLongestString();
 		instance.findAvgOfGivenNumber();
+
 	}
 
 
