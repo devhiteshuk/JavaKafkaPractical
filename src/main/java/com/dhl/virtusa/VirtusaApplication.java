@@ -1,13 +1,19 @@
 package com.dhl.virtusa;
 
 import com.dhl.virtusa.model.Employee;
+import com.dhl.virtusa.redish_service.RedishCacheServiceImp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.*;
 
 @SpringBootApplication
 public class VirtusaApplication {
+	private static final Logger logger = LoggerFactory.getLogger(RedishCacheServiceImp.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(VirtusaApplication.class, args);
@@ -20,6 +26,14 @@ public class VirtusaApplication {
 
 		instance.findLongestString();
 		instance.findAvgOfGivenNumber();
+
+
+		ApplicationContext context = SpringApplication.run(VirtusaApplication.class, args);
+		RedisTemplate<String, Object> redisTemplate = context.getBean(RedisTemplate.class);
+
+		RedishCacheServiceImp redishCacheServiceImp = new RedishCacheServiceImp(redisTemplate);
+		long cacheRecordCount = redishCacheServiceImp.countKeys();
+		logger.info("Redish Cache Count --->  {}", cacheRecordCount);
 
 	}
 
