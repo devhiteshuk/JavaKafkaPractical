@@ -1,5 +1,5 @@
 /*
-package com.dhl.virtusa;
+package com.dhl.virtual;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
