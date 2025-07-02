@@ -12,11 +12,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 import java.util.*;
 
 @SpringBootApplication
-public class VirtusaApplication {
+public class VirtualApplication {
 	private static final Logger logger = LoggerFactory.getLogger(RedishCacheServiceImp.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(VirtusaApplication.class, args);
+		SpringApplication.run(VirtualApplication.class, args);
 
 		List<String> employee = new ArrayList<String>();
 		employee.stream().sorted();
@@ -28,7 +28,7 @@ public class VirtusaApplication {
 		instance.findAvgOfGivenNumber();
 
 
-		ApplicationContext context = SpringApplication.run(VirtusaApplication.class, args);
+		ApplicationContext context = SpringApplication.run(VirtualApplication.class, args);
 		RedisTemplate<String, Object> redisTemplate = context.getBean(RedisTemplate.class);
 
 		RedishCacheServiceImp redishCacheServiceImp = new RedishCacheServiceImp(redisTemplate);

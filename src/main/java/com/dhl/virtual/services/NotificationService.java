@@ -21,7 +21,7 @@ public class NotificationService {
         kafkaTemplate.send("notifications", notification);
     }
 
-    @KafkaListener(topics = "notifications", groupId = "virtusa-group")
+    @KafkaListener(topics = "notifications", groupId = "virtual-group")
     public void listen(NotificationMessage notification) {
         notifications.add(notification);
         System.out.println("Received notification: " + notification.toString());
